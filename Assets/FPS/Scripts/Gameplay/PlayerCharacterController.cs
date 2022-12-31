@@ -96,8 +96,8 @@ namespace Unity.FPS.Gameplay
         [Tooltip("Damage recieved when falling at the maximum speed")]
         public float FallDamageAtMaxSpeed = 50f;
 
-        // [Tooltip("Max air jump count")]
-        // public int AirJumpMaxCount =2;
+        [Tooltip("Max air jump count")]
+        public int AirJumpMaxCount =2;
 
         public UnityAction<bool> OnStanceChanged;
 
@@ -133,7 +133,7 @@ namespace Unity.FPS.Gameplay
         float m_FootstepDistanceCounter;
         float m_TargetCharacterHeight;
 
-        // int m_airJumpCount = 0;
+        int m_airJumpCount = 0;
 
         const float k_JumpGroundingPreventionTime = 0.2f;
         const float k_GroundCheckDistanceInAir = 0.07f;
@@ -258,6 +258,8 @@ namespace Unity.FPS.Gameplay
                         IsNormalUnderSlopeLimit(m_GroundNormal))
                     {
                         IsGrounded = true;
+                        // reset air jump count
+                        m_airJumpCount = 0;
 
                         // handle snapping to the ground
                         if (hit.distance > m_Controller.skinWidth)
@@ -359,6 +361,35 @@ namespace Unity.FPS.Gameplay
                 // handle air movement
                 else
                 {
+                    // air jump
+                    if (m_InputHandler.GetJumpInputDown())
+                    {
+                        m_airJumpCount++;
+                        // if not exceed max count 
+                        if (m_airJumpCount <= AirJumpMaxCount)
+                        {
+                            // force the crouch state to false
+                            if (SetCrouchingState(false, false))
+                            {
+                                // start by canceling out the vertical component of our velocity
+                                CharacterVelocity = new Vector3(CharacterVelocity.x, 0f, CharacterVelocity.z);
+
+                                // then, add the jumpSpeed value upwards
+                                CharacterVelocity += Vector3.up * JumpForce;
+
+                                // play sound
+                                AudioSource.PlayOneShot(JumpSfx);
+
+                                // remember last time we jumped because we need to prevent snapping to ground for a short time
+                                m_LastTimeJumped = Time.time;
+                                HasJumpedThisFrame = true;
+
+                                // Force grounding to false
+                                IsGrounded = false;
+                                m_GroundNormal = Vector3.up;
+                            }
+                        }
+                    }
                     // add air acceleration
                     CharacterVelocity += worldspaceMoveInput * AccelerationSpeedInAir * Time.deltaTime;
 
