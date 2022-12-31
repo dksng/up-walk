@@ -119,6 +119,30 @@ namespace Unity.FPS.Gameplay
                 return 1f;
             }
         }
+         // It is called by KillJump
+         public void JumpWithKill()
+        {
+            // start by canceling out the vertical component of our velocity
+            CharacterVelocity = new Vector3(CharacterVelocity.x, 0f, CharacterVelocity.z);
+
+            // then, add the jumpSpeed value upwards
+            CharacterVelocity += Vector3.up * JumpForce;
+
+            // play sound
+            AudioSource.PlayOneShot(JumpSfx);
+
+            // remember last time we jumped because we need to prevent snapping to ground for a short time
+            m_LastTimeJumped = Time.time;
+            HasJumpedThisFrame = true;
+
+            // Force grounding to false
+            IsGrounded = false;
+            m_GroundNormal = Vector3.up;
+
+            // Reset jump count
+            m_airJumpCount = 0;
+        }
+
 
         Health m_Health;
         PlayerInputHandler m_InputHandler;
