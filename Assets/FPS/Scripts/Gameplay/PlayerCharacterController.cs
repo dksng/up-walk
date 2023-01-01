@@ -120,13 +120,13 @@ namespace Unity.FPS.Gameplay
             }
         }
          // It is called by KillJump
-         public void JumpWithKill()
+         public void JumpWithKill(float killedJumpForce)
         {
             // start by canceling out the vertical component of our velocity
             CharacterVelocity = new Vector3(CharacterVelocity.x, 0f, CharacterVelocity.z);
 
             // then, add the jumpSpeed value upwards
-            CharacterVelocity += Vector3.up * JumpForce;
+            CharacterVelocity += Vector3.up * killedJumpForce;
 
             // play sound
             AudioSource.PlayOneShot(JumpSfx);

@@ -16,7 +16,7 @@ namespace Unity.FPS.AI
         public float RotateDistance = 1.0f;
         
         [Tooltip("Affect jump power for player")]
-        public float AddingPower = 1.0f;
+        public float AddingJumpPower = 15.0f;
 
         [Tooltip("Fraction of the enemy's attack range at which it will stop moving towards target while attacking")]
         [Range(0f, 1f)]

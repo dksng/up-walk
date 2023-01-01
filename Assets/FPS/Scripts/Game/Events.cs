@@ -39,6 +39,7 @@ namespace Unity.FPS.Game
     public class EnemyKillEvent : GameEvent
     {
         public GameObject Enemy;
+        public float killedJumpForce;
         public int RemainingEnemyCount;
     }
 
