@@ -14,7 +14,6 @@ namespace Unity.FPS.AI
 
         [Tooltip("Rotate distance")]
         public float RotateDistance = 1.0f;
-
         
         [Tooltip("Affect jump power for player")]
         public float AddingPower = 1.0f;
@@ -26,19 +25,14 @@ namespace Unity.FPS.AI
         [Tooltip("The random hit damage effects")]
         public ParticleSystem[] RandomHitSparks;
 
-        // public ParticleSystem[] OnDetectVfx;
-        // public AudioClip OnDetectSfx;
-
         [Header("Sound")] public AudioClip MovementSound;
         public MinMaxFloat PitchDistortionMovementSpeed;
 
         EnemyController m_EnemyController;
         AudioSource m_AudioSource;
 
-        float m_RotateDistance = 2.0f;
         float m_RotateProgress = 0.5f;
-        float m_progressSpeed = 0.001f;
-
+        float m_progressSpeed;
 
         const string k_AnimMoveSpeedParameter = "MoveSpeed";
         const string k_AnimAttackParameter = "Attack";
@@ -55,9 +49,6 @@ namespace Unity.FPS.AI
             DebugUtility.HandleErrorIfNullGetComponent<EnemyController, BasicTarget>(m_EnemyController, this,
                 gameObject);
 
-            //m_EnemyController.onAttack += OnAttack;
-            // m_EnemyController.onDetectedTarget += OnDetectedTarget;
-            // m_EnemyController.onLostTarget += OnLostTarget;
             m_EnemyController.SetPathDestinationToClosestNode();
             m_EnemyController.onDamaged += OnDamaged;
 
@@ -72,13 +63,9 @@ namespace Unity.FPS.AI
         {
             
             m_RotateProgress += m_progressSpeed; 
-
-            float nextZ = transform.position.z + MoveSpeed * Mathf.Sign(m_RotateProgress-0.5f);
             
-            print(m_RotateProgress);
-            
-            // rotate  with in one direction
-            transform.position = new Vector3(transform.position.x,transform.position.y,nextZ);
+            // rotate  to forward (and backward) direction
+            transform.position +=  transform.forward * MoveSpeed * Mathf.Sign(m_RotateProgress-0.5f);
             
             if(m_RotateProgress > 1.00f){
                 m_RotateProgress = 0.0f;
