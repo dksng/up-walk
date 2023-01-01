@@ -28,6 +28,13 @@ namespace Unity.FPS.AI
 
             EnemyKillEvent evt = Events.EnemyKillEvent;
             evt.Enemy = enemyKilled.gameObject;
+            
+            float killedJumpForce = 0.0f;
+            BasicTarget target = evt.Enemy.GetComponentInChildren<BasicTarget>();
+            if(target!=null){
+                killedJumpForce =target.AddingJumpPower;
+            }
+            evt.killedJumpForce = killedJumpForce;
             evt.RemainingEnemyCount = enemiesRemainingNotification;
             EventManager.Broadcast(evt);
 

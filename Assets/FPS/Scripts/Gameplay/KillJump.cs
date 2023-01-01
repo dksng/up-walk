@@ -16,12 +16,7 @@ namespace Unity.FPS.Gameplay
 
         void OnEnemyKilled(EnemyKillEvent evt)
         {
-            JumpPlayer();
-        }
-
-        void JumpPlayer()
-        {
-            m_PlayerCharacterController.JumpWithKill();
+            m_PlayerCharacterController.JumpWithKill(evt.killedJumpForce);
         }
     }
 }
