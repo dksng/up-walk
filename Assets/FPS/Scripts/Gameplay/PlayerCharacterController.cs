@@ -128,9 +128,6 @@ namespace Unity.FPS.Gameplay
             // then, add the jumpSpeed value upwards
             CharacterVelocity += Vector3.up * killedJumpForce;
 
-            // play sound
-            AudioSource.PlayOneShot(JumpSfx);
-
             // remember last time we jumped because we need to prevent snapping to ground for a short time
             m_LastTimeJumped = Time.time;
             HasJumpedThisFrame = true;
