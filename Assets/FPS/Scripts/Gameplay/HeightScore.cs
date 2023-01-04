@@ -38,8 +38,9 @@ namespace Unity.FPS.Gameplay
             if(nowHighScore < m_HighestScore){
                 PlayerPrefs.SetFloat (GameConstants.k_HighestScoreKey, m_HighestScore);
                 PlayerPrefs.Save ();
-                return;
             }
+            PlayerPrefs.SetFloat (GameConstants.k_CurrentScoreKey, m_HighestScore);
+            PlayerPrefs.Save ();
         }
         
 
