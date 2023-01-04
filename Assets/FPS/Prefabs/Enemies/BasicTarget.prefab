@@ -61,13 +61,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1410630948907663373}
   - component: {fileID: 8536527691139065597}
+  - component: {fileID: 606810004137328084}
   - component: {fileID: 5765141442527085796}
   - component: {fileID: 4069118898339492496}
   - component: {fileID: 7972087582317107233}
   - component: {fileID: 5902584847127625090}
   - component: {fileID: 250864118494290695}
   - component: {fileID: 2165360200610314454}
-  - component: {fileID: 606810004137328084}
   m_Layer: 0
   m_Name: BasicTarget
   m_TagString: Untagged
@@ -154,10 +154,32 @@ MonoBehaviour:
   DeathVfxSpawnPoint: {fileID: 947744299698195856}
   LootPrefab: {fileID: 2529580269645609534, guid: 9973c412032becb4ca116ca08be62edf,
     type: 3}
-  DropRate: 1
+  DropRate: 0
   PathReachingRangeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   AttackRangeColor: {r: 1, g: 0, b: 0, a: 1}
   DetectionRangeColor: {r: 0, g: 0, b: 1, a: 1}
+--- !u!114 &606810004137328084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410630948907663361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bccde553caf438ea7c91bec19c19ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 872002757065148258}
+  MoveSpeed: 0.01
+  RotateDistance: 20
+  AddingJumpPower: 15
+  AttackStopDistanceRatio: 0.5
+  RandomHitSparks: []
+  MovementSound: {fileID: 0}
+  PitchDistortionMovementSpeed:
+    Min: 0
+    Max: 0
 --- !u!114 &5765141442527085796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,28 +358,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &606810004137328084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410630948907663361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35bccde553caf438ea7c91bec19c19ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 872002757065148258}
-  MoveSpeed: 0.01
-  RotateDistance: 20
-  AddingJumpPower: 15
-  AttackStopDistanceRatio: 0.5
-  RandomHitSparks: []
-  MovementSound: {fileID: 0}
-  PitchDistortionMovementSpeed:
-    Min: 0
-    Max: 0
 --- !u!1 &1649749790248168016
 GameObject:
   m_ObjectHideFlags: 0
