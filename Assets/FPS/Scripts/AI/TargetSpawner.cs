@@ -63,9 +63,9 @@ namespace Unity.FPS.Gameplay
 
         void SpawnNewTarget(){      
             Vector3 spawnPosition = new Vector3(
-                Mathf.Ceil(Random.Range(-1,1)) * Random.Range(ProhibitSpawnHorizontalDistance, LimitSpawnHorizontalDistance),
+                (Random.Range(0.0f,1.0f)>0.5 ? 1: -1) * Random.Range(ProhibitSpawnHorizontalDistance, LimitSpawnHorizontalDistance),
                 Random.Range(ProhibitSpawnUpDistance,LimitSpawnUpDistance),
-                Mathf.Ceil(Random.Range(-1,1)) * Random.Range(ProhibitSpawnHorizontalDistance, LimitSpawnHorizontalDistance)                
+                (Random.Range(0.0f,1.0f)>0.5 ? 1: -1) * Random.Range(ProhibitSpawnHorizontalDistance, LimitSpawnHorizontalDistance)                
             );
             Instantiate(basicTarget, spawnPosition + m_PlayerTransform.position, Random.rotation);
         }
