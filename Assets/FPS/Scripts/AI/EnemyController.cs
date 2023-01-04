@@ -357,6 +357,11 @@ namespace Unity.FPS.AI
             }
         }
 
+        public void Remove(){
+            m_EnemyManager.UnregisterEnemy(this);
+            Destroy(gameObject);
+        }
+
         void OnDie()
         {
             // spawn a particle system when dying
@@ -364,7 +369,7 @@ namespace Unity.FPS.AI
             Destroy(vfx, 5f);
 
             // tells the game flow manager to handle the enemy destuction
-            m_EnemyManager.UnregisterEnemy(this);
+            m_EnemyManager.KilledEnemy(this);
 
             // loot an object
             if (TryDropItem())

@@ -21,8 +21,11 @@ namespace Unity.FPS.AI
 
             NumberOfEnemiesTotal++;
         }
+        public void UnregisterEnemy(EnemyController enemy){
+            Enemies.Remove(enemy);
+        }
 
-        public void UnregisterEnemy(EnemyController enemyKilled)
+        public void KilledEnemy(EnemyController enemyKilled)
         {
             int enemiesRemainingNotification = NumberOfEnemiesRemaining - 1;
 
