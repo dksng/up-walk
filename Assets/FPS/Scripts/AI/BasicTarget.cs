@@ -30,6 +30,8 @@ namespace Unity.FPS.AI
 
         EnemyController m_EnemyController;
         AudioSource m_AudioSource;
+        
+        Transform m_PlayerTransform;
 
         float m_RotateProgress = 0.5f;
         float m_progressSpeed;
@@ -45,6 +47,15 @@ namespace Unity.FPS.AI
 
         void Start()
         {
+            ActorsManager actorsManager = FindObjectOfType<ActorsManager>();
+            if (actorsManager != null)
+                m_PlayerTransform = actorsManager.Player.transform;
+            else
+            {
+                enabled = false;
+                return;
+            }
+
             m_EnemyController = GetComponent<EnemyController>();
             DebugUtility.HandleErrorIfNullGetComponent<EnemyController, BasicTarget>(m_EnemyController, this,
                 gameObject);
@@ -61,6 +72,10 @@ namespace Unity.FPS.AI
 
         void Update()
         {
+            if(Mathf.Abs(transform.position.y-m_PlayerTransform.position.y)> 30){
+                m_EnemyController.Remove();
+                return;
+            }
             
             m_RotateProgress += m_progressSpeed; 
             

@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.FPS.Game;
 
 namespace Unity.FPS.UI
 {
@@ -12,7 +11,7 @@ namespace Unity.FPS.UI
         void Start()
         {
             m_ScoreText = GetComponent<Text> ();
-            float? nowHighScore = PlayerPrefs.GetFloat("HighestScore");
+            float? nowHighScore = PlayerPrefs.GetFloat(GameConstants.k_HighestScoreKey);
             if(nowHighScore == null) nowHighScore = 0.0f;
             m_ScoreText.text = nowHighScore.ToString();
         }
