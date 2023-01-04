@@ -25,5 +25,8 @@
         public const string k_ButtonNameSubmit = "Submit";
         public const string k_ButtonNameCancel = "Cancel";
         public const string k_ButtonReload = "Reload";
+
+        // Save data
+        public const string k_HighestScoreKey ="HighestScore";
     }
 }

@@ -32,11 +32,11 @@ namespace Unity.FPS.Gameplay
             }
         }
         private void OnDestroy() {
-            float? nowHighScore = PlayerPrefs.GetFloat("HighestScore");
+            float? nowHighScore = PlayerPrefs.GetFloat(GameConstants.k_HighestScoreKey);
             if(nowHighScore == null) nowHighScore = 0.0f;
 
             if(nowHighScore < m_HighestScore){
-                PlayerPrefs.SetFloat ("HighestScore", m_HighestScore);
+                PlayerPrefs.SetFloat (GameConstants.k_HighestScoreKey, m_HighestScore);
                 PlayerPrefs.Save ();
                 return;
             }
