@@ -28,5 +28,6 @@
 
         // Save data
         public const string k_HighestScoreKey ="HighestScore";
+        public const string k_CurrentScoreKey ="CurrentScore";
     }
 }

@@ -2,18 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.FPS.Game;
 
+using TMPro;
+
 namespace Unity.FPS.UI
 {
     public class HighScoreView : MonoBehaviour
     {
-        Text m_ScoreText;
+        TextMeshProUGUI m_ScoreText;
 
         void Start()
         {
-            m_ScoreText = GetComponent<Text> ();
+            m_ScoreText = GetComponent<TextMeshProUGUI>();
             float? nowHighScore = PlayerPrefs.GetFloat(GameConstants.k_HighestScoreKey);
-            if(nowHighScore == null) nowHighScore = 0.0f;
-            m_ScoreText.text = nowHighScore.ToString();
+            if (nowHighScore == null) nowHighScore = 0.0f;
+            m_ScoreText.text = $"HighScore:\r\n{nowHighScore} m";
         }
     }
 }
