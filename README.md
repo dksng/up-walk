@@ -1,6 +1,6 @@
 # Portfolio game
 
-![gameplay](/doc/video/gameplay.gif)
+![gameplay](/doc/video/gameplay.webm)
 
 ## Game binary
 
