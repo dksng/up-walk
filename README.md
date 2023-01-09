@@ -1,5 +1,7 @@
 # Portfolio game
 
+![gameplay](/doc/video/gameplay.gif)
+
 ## Game binary
 
 - [Windows](https://github.com/dksng/up-walk/releases/download/v0.1.0/up-walk_v0.1.0_win.zip)
