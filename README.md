@@ -4,9 +4,9 @@
 
 ## Game binary
 
-- Windows
-- Mac
-- Linux
+- [Windows](https://github.com/dksng/up-walk/releases/download/v0.1.0/up-walk_v0.1.0_win.zip)
+- [Mac](https://github.com/dksng/up-walk/releases/download/v0.1.0/up-walk_v0.1.0_mac.zip)
+- [Linux](https://github.com/dksng/up-walk/releases/download/v0.1.0/up-walk_v0.1.0_linux.zip)
 
 ## About this game
 
@@ -19,6 +19,7 @@
 
 ## Control
 
+- Move: WASD
 - Shot: Left mouse click
   - Too much continuous firing will cause overheating
 - Jump: Space
