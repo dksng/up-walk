@@ -66,7 +66,6 @@ GameObject:
   - component: {fileID: 4069118898339492496}
   - component: {fileID: 7972087582317107233}
   - component: {fileID: 5902584847127625090}
-  - component: {fileID: 250864118494290695}
   - component: {fileID: 2165360200610314454}
   m_Layer: 0
   m_Name: BasicTarget
@@ -246,21 +245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Affiliation: 0
   AimPoint: {fileID: 947744299698195856}
---- !u!114 &250864118494290695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410630948907663361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b7698ec50c85c44a849a968dc1d57d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CompassMarkerPrefab: {fileID: 4125838790012652590, guid: 513785daf84f2a243b0cda079e6835cd,
-    type: 3}
-  TextDirection: 
 --- !u!82 &2165360200610314454
 AudioSource:
   m_ObjectHideFlags: 0
