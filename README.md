@@ -1,6 +1,6 @@
 # Portfolio game
 
-![gameplay](/doc/video/gameplay.webm)
+[gameplay.webm](https://user-images.githubusercontent.com/121042673/211309684-31bc6aa8-bcc1-4d83-9add-f67a10e5b01e.webm)
 
 ## Game binary
 
