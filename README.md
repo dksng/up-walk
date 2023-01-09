@@ -1,5 +1,7 @@
 # Portfolio game
 
+![gameplay](/doc/video/gameplay.gif)
+
 ## Game binary
 
 - Windows
